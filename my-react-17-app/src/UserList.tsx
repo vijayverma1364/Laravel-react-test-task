@@ -1,14 +1,24 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+interface Role {
+  name: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  roles: Role[];
+}
 
 const UserList = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/users')
+    axios.get<User[]>('http://localhost:8000/api/users')
       .then(res => setUsers(res.data))
-      .catch(err => console.error(err));
+      .catch(err => console.error('Error fetching users:', err));
   }, []);
 
   return (

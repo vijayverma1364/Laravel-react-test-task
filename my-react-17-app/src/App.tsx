@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddUser from './AddUser';
 import UserList from './UserList';
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Router>
       <Routes>
@@ -11,6 +11,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
